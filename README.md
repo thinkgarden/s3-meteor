@@ -136,7 +136,7 @@ logout 的功能我们后面再介绍，但是为了调试方便，咱们可以�
 
     meteor add http
 
-#### message form
+### Message form
 0、material-ui style 设置（Card、TextFiled、SVG Icon、IconMenu） flex布局、justify-content：flex-end
 
 1、定义一个state来控制input的值（参见react controlled component）
@@ -198,13 +198,22 @@ Methods are remote functions that Meteor clients can invoke.
     #查看数据
     db.messages.find()
 
-momentjs
+### Message list
+React 文档keys
 
-meteor add momentjs:moment
+    meteor add momentjs:moment
 
-user-status
+安装user status
 
-meteor add mizzao:user-status
+    meteor add mizzao:user-status
+
+解决 `Clock discrepancy detected.` warning:
+
+    重新安装timesync
+    meteor add mizzao:timesync
+
+    在startup.jsx中加入
+    TimeSync.loggingEnabled=false;
 
 ### 遇到的问题
 

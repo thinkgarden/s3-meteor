@@ -26,3 +26,6 @@ fourseven:scss
 seba:minifiers-autoprefixer
 accounts-password
 http
+momentjs:moment
+mizzao:user-status
+mizzao:timesync

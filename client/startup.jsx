@@ -16,6 +16,7 @@ const Routes = (
 );
 
 Meteor.startup(function() {
+  TimeSync.loggingEnabled=false;
   ReactDOM.render((
     <Router history={browserHistory}>
       {Routes}
