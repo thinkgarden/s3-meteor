@@ -8,7 +8,7 @@ LogOutMenu = React.createClass({
   render() {
     let iconButtonElement = (
       <IconButton style={{height: '64px', width: '64px', marginLeft: '25px'}}>
-        <ActionAccountCircle color='#fff' />
+        <ActionAccountCircle color='#fff' /> //在lib中引入
       </IconButton>
     );
 

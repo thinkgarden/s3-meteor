@@ -120,6 +120,9 @@ meteor 的数据是同时存在于客户端和服务器上的，那么服务器�
     查看用户
     $ db.users.find()
 
+    删除数据
+    $ db.users.remove({})
+
 #### logout 登出
 
 logout 的功能我们后面再介绍，但是为了调试方便，咱们可以在 chrome 开发者 console 中，运行
@@ -127,8 +130,81 @@ logout 的功能我们后面再介绍，但是为了调试方便，咱们可以�
     Meteor.logout()
 
 
+#### ajax 请求，保存数据到 mongodb ，打通实时订阅通道。
+
+安装HTTP模块
+
+    meteor add http
+
+#### message form
+0、material-ui style 设置（Card、TextFiled、SVG Icon、IconMenu） flex布局、justify-content：flex-end
+
+1、定义一个state来控制input的值（参见react controlled component）
+
+2、Meteor Data transform
+
+    mixins:[ReactMeteorData]
+    getMeteorData(){
+      return MeteorData.user()
+    }
+
+3、 Publish and subscribe
+
+    // server: publish the rooms collection, minus secret info.
+    Meteor.publish("rooms", function () {
+      return Rooms.find({}, {fields: {secretInfo: 0}});
+    });
+
+    Meteor.subscribe("allplayers");
+
+4、Methods
+Methods are remote functions that Meteor clients can invoke.
+
+    Meteor.methods({
+      foo: function (arg1, arg2) {
+        check(arg1, String);
+        check(arg2, [Number]);
+
+        // .. do stuff ..
+
+        if (/* you want to throw an error */) {
+          throw new Meteor.Error("pants-not-found", "Can't find my pants");
+        }
+
+        return "some return value";
+      },
+
+      bar: function () {
+        // .. do other stuff ..
+        return "baz";
+      }
+    });
 
 
+2、新建Collection
+
+    Messages = new Mongo.Collection("messages");
+
+3、Collection Insert
+
+4、终端调试Meteor Mongo
+
+    #打开终端
+    meteor mongo
+
+    #查看collections
+    show collections
+
+    #查看数据
+    db.messages.find()
+
+momentjs
+
+meteor add momentjs:moment
+
+user-status
+
+meteor add mizzao:user-status
 
 ### 遇到的问题
 

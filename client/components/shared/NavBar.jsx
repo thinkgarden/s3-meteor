@@ -25,6 +25,7 @@ NavBar = React.createClass({
     return this.context.router.isActive('/home') ? '/home' :
       this.context.router.isActive('/signup') ? '/signup' :
       this.context.router.isActive('/account') ? '/account' :
+      this.context.router.isActive('/chat') ? '/chat' :
       this.context.router.isActive('/login') ? '/login' : '';
   },
 
@@ -73,8 +74,8 @@ NavBar = React.createClass({
             value={ currentUser ? '/account' : '/signup' } />
           <Tab
             style={styles.tap}
-            value="/login"
-            label="login" />
+            value={ currentUser ? '/chat' : '/login'}
+            label={ currentUser ? 'chat' : 'login'} />
         </Tabs>
         { logOutMenu }
       </div>
