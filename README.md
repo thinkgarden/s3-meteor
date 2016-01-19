@@ -215,6 +215,11 @@ React 文档keys
     在startup.jsx中加入
     TimeSync.loggingEnabled=false;
 
+
+
+### meteor自带jquery库
+jquery动画函数
+
 ### 遇到的问题
 
 #### meteor如何寻找变量，因为他不用导出包？
@@ -223,3 +228,6 @@ React 文档keys
 登录成功后路由链接明明是account但tabs显示的却是login显示的内容为account。
 
 分析现象知道路由链接和内容是对应的，所以判断问题应该出现在tabs的配置上。仔细检查发现tabs的value设置的不正确initialSate中设置的tabsIndex但tabs的value中设置的是this.state.value.两者不是很对应，修正tabs的value为this.state.tabsIndex之后问题变解决了。
+
+###React 组件生命周期
+componentWillReceiveProps
